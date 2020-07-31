@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>Direflow Styled Component Bug</title>
+  </head>
+  <body>
+    <div>
+      <p>
+        Simple example to show that the component can/will respond to attribute
+        changes. However the styled-components styling will disappear.
+      </p>
+      <div>
+        <input
+          id="color"
+          type="text"
+          placeholder="Fill in a web/hexcolor for the button background"
+        />
+        <input
+          id="title"
+          type="text"
+          placeholder="Fill in a text for the button"
+        />
+      </div>
+      <script>
+        document.getElementById("color").addEventListener("change", (event) => {
+          document.querySelector("direflow-styled-component-bug").color =
+            event.target.value;
+        });
+
+        document.getElementById("title").addEventListener("change", (event) => {
+          document.querySelector(
+            "direflow-styled-component-bug"
+          ).componentTitle = event.target.value;
+        });
+      </script>
+    </div>
+
+    <direflow-styled-component-bug></direflow-styled-component-bug>
+  </body>
+</html>
